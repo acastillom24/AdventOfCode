@@ -1,13 +1,10 @@
-from src._2015_.day6 import *
-
-PATH_FILE = "./data/_2015_/day6.txt"
+from sources import read_input_txt as read_input
 
 
-def main():
-    with open(PATH_FILE) as f:
-        lines = f.readlines()
-    f.close()
+def transformer(line):
+    s, e = line.split(" -> ")
+    return (s, e)
 
 
-if __name__ == "__main__":
-    main()
+connections = read_input(15, 7, transformer)
+print(connections)

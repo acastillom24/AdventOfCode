@@ -1,17 +1,47 @@
-"""Advent of Code 2015, day 7: Some Assembly Required
-"""
+"""Advent of Code 2015, day 7: Some Assembly Required"""
 
-from app.functions.helpers import read_file_txt
 
-bitwise_operation = {
-    "AND": "&",
-    "OR": "|",
-    "LSHIFT": "<<",
-    "RSHIFT": ">>",
-    "NOT": "~"
-}
+class Rules:
 
-['~ hn -> ho', '1 & f -> hn', '1674 -> b', 'b >> 5 -> f', "c << 1 -> t", "0 -> c"]
+    MAX_VALUE = 65535
+    MIN_VALUE = 0
+
+    def AND(self, a, b):
+        return a & b
+
+    def OR(self, a, b):
+        return a | b
+
+    def LSHIFT(self, a, b):
+        return a << b
+
+    def RSHIFT(self, a, b):
+        return a >> b
+
+
+class Puzzle1507:
+
+    def __init__(self):
+        pass
+
+    def solveA():
+        pass
+
+    testCasesA = []
+
+    def solveB():
+        pass
+
+    testCasesB = []
+
+    class CircuitBoard:
+        def __init__(self):
+            self.bitwise_value = {}
+
+
+bitwise_operation = {"AND": "&", "OR": "|", "LSHIFT": "<<", "RSHIFT": ">>", "NOT": "~"}
+
+["~ hn -> ho", "1 & f -> hn", "1674 -> b", "b >> 5 -> f", "c << 1 -> t", "0 -> c"]
 
 bitwise_value = {}
 
@@ -23,7 +53,11 @@ _, search_value = rows[-1].split("->")
 rows_clean = []
 for row in rows:
     left, right = row.split("->")
-    rows_clean += [right.strip() + " = " + " ".join(bitwise_operation.get(l, l) for l in left.split())]
+    rows_clean += [
+        right.strip()
+        + " = "
+        + " ".join(bitwise_operation.get(l, l) for l in left.split())
+    ]
 rows_clean = sorted(rows_clean)
 
 code = "; ".join(rows_clean)
