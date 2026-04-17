@@ -13,10 +13,10 @@ def read_input_txt(
     """Función para leer un archivo de texto y devolver una lista de líneas.
 
     Args:
-        path_file (str): Ruta del archivo de texto a leer.
         year (int): Año para el cual leer el archivo.
         day (int): Número del día para el cual leer el archivo.
         transformer (str): Función para transformar cada línea.
+        path_file Optional[str]: Ruta del archivo de texto a leer.
         encoding (str): Codificación del archivo. Por defecto es "utf-8".
 
     Returns:
